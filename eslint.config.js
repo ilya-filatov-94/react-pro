@@ -83,17 +83,35 @@ export default [
         },
       ],
 
-      'boundaries/element-types': [
-        'error',
+      'boundaries/dependencies': [
+        'error', // или 2
         {
           default: 'disallow',
           rules: [
-            { from: 'features', allow: ['shared', 'entities'] },
-            { from: 'entities', allow: ['shared'] },
-            { from: 'widgets', allow: ['shared', 'features', 'entities'] },
             {
-              from: 'pages',
-              allow: ['widgets', 'features', 'entities', 'shared'],
+              from: { type: 'features' },
+              allow: [{ to: { type: 'shared' } }, { to: { type: 'entities' } }],
+            },
+            {
+              from: { type: 'entities' },
+              allow: [{ to: { type: 'shared' } }],
+            },
+            {
+              from: { type: 'widgets' },
+              allow: [
+                { to: { type: 'shared' } },
+                { to: { type: 'features' } },
+                { to: { type: 'entities' } },
+              ],
+            },
+            {
+              from: { type: 'pages' },
+              allow: [
+                { to: { type: 'widgets' } },
+                { to: { type: 'features' } },
+                { to: { type: 'entities' } },
+                { to: { type: 'shared' } },
+              ],
             },
           ],
         },
