@@ -6,6 +6,7 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 import importPlugin from 'eslint-plugin-import';
 import boundaries from 'eslint-plugin-boundaries';
 import tsParser from '@typescript-eslint/parser';
+import tseslint from '@typescript-eslint/eslint-plugin';
 import prettier from 'eslint-config-prettier';
 
 export default [
@@ -37,6 +38,7 @@ export default [
 
     plugins: {
       react,
+      '@typescript-eslint': tseslint,
       'react-hooks': reactHooks,
       'jsx-a11y': jsxA11y,
       import: importPlugin,
@@ -46,6 +48,13 @@ export default [
     settings: {
       react: {
         version: 'detect',
+      },
+
+      'import/resolver': {
+        typescript: {
+          // всегда указывайте путь к tsconfig.json, если он не в корне
+          project: './tsconfig.app.json',
+        },
       },
 
       'boundaries/elements': [
@@ -64,6 +73,15 @@ export default [
       ...jsxA11y.configs.recommended.rules,
       ...importPlugin.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
 
       'boundaries/element-types': [
         'error',
