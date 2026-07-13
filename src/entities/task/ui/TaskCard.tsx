@@ -33,3 +33,5 @@ export const TaskCard: FC<TaskProps> = memo(
     );
   },
 );
+
+TaskCard.displayName = 'TaskCard'; // для ESLint, который не видит у завёрнутых в React.memo
