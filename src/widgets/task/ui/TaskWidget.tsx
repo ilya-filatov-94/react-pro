@@ -1,10 +1,20 @@
 import type { FC } from 'react';
 import { TaskList, useTasks } from 'features/taskList';
-import { FilterButton } from 'shared/filterButton';
+import { FilterButton } from 'shared/ui/filterButton';
+import { LoadingErrorBoundary } from 'shared/ui/loadingErrorBoundary';
 import styles from './TaskWidget.module.css';
 
 export const TaskWidget: FC = () => {
-  const { tasks, filter, setFilter, removeTask } = useTasks();
+  const {
+    tasks,
+    filter,
+    setFilter,
+    removeTask,
+    isLoading,
+    isFetching,
+    error,
+    isError,
+  } = useTasks();
 
   return (
     <div className={styles.TaskWidget}>
@@ -37,10 +47,16 @@ export const TaskWidget: FC = () => {
           Выполненные
         </FilterButton>
       </div>
-      <TaskList
-        tasks={tasks}
-        removeTask={removeTask}
-      />
+      <LoadingErrorBoundary
+        isLoading={isLoading || isFetching}
+        isError={isError}
+        error={error}
+      >
+        <TaskList
+          tasks={tasks}
+          removeTask={removeTask}
+        />
+      </LoadingErrorBoundary>
     </div>
   );
 };
