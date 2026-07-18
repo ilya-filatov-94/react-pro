@@ -89,6 +89,10 @@ export default [
           default: 'disallow',
           rules: [
             {
+              from: { type: 'shared' },
+              allow: [{ to: { type: 'shared' } }],
+            },
+            {
               from: { type: 'features' },
               allow: [{ to: { type: 'shared' } }, { to: { type: 'entities' } }],
             },
