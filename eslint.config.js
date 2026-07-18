@@ -119,5 +119,11 @@ export default [
       ],
     },
   },
+  {
+    files: ['src/shared/store/hooks.ts'],
+    rules: {
+      'boundaries/dependencies': 'off',
+    },
+  },
 ];
 
