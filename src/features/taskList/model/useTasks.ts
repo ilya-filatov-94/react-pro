@@ -12,7 +12,7 @@ interface FilteredTasks {
 }
 
 export function useTasks(): FilteredTasks {
-  const { data: tasks, isLoading, error, isFetching } = useGetTasksQuery();
+  const { data: tasks } = useGetTasksQuery();
   const prevDataRef = useRef(tasks);
   const [localTasks, setLocalTasks] = useState<Task[]>([]);
   const [filter, setFilter] = useState<Filter>('all');
