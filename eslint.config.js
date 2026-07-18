@@ -56,7 +56,7 @@ export default [
           project: './tsconfig.app.json',
         },
       },
-
+      'boundaries/ignore': ['src/app/**/*.tsx', 'src/app/**/*.ts'],
       'boundaries/elements': [
         { type: 'shared', pattern: 'src/shared/*' },
         { type: 'entities', pattern: 'src/entities/*' },
@@ -120,7 +120,7 @@ export default [
     },
   },
   {
-    files: ['src/shared/store/hooks.ts'],
+    files: ['src/shared/store/hooks.ts', 'src/shared/api/baseApi.ts'],
     rules: {
       'boundaries/dependencies': 'off',
     },
