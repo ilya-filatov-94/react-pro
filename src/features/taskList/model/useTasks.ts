@@ -13,7 +13,7 @@ interface FilteredTasks {
   removeTask: (id: string) => void;
   isLoading: boolean;
   isFetching: boolean;
-  error: FetchBaseQueryError | SerializedError;
+  error: FetchBaseQueryError | SerializedError | undefined;
   isError: boolean;
 }
 
