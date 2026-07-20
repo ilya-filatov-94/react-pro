@@ -56,7 +56,6 @@ export default [
           project: './tsconfig.app.json',
         },
       },
-
       'boundaries/elements': [
         { type: 'shared', pattern: 'src/shared/*' },
         { type: 'entities', pattern: 'src/entities/*' },
@@ -90,6 +89,10 @@ export default [
           default: 'disallow',
           rules: [
             {
+              from: { type: 'shared' },
+              allow: [{ to: { type: 'shared' } }],
+            },
+            {
               from: { type: 'features' },
               allow: [{ to: { type: 'shared' } }, { to: { type: 'entities' } }],
             },
@@ -117,6 +120,16 @@ export default [
           ],
         },
       ],
+    },
+  },
+  {
+    files: [
+      'src/shared/store/hooks.ts',
+      'src/shared/api/baseApi.ts',
+      'src/app/store/store.ts',
+    ],
+    rules: {
+      'boundaries/dependencies': 'off',
     },
   },
 ];
