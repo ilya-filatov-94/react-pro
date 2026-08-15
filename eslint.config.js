@@ -105,6 +105,7 @@ export default [
               allow: [
                 { to: { type: 'shared' } },
                 { to: { type: 'features' } },
+                { to: { type: 'widgets' } },
                 { to: { type: 'entities' } },
               ],
             },
@@ -114,6 +115,14 @@ export default [
                 { to: { type: 'widgets' } },
                 { to: { type: 'features' } },
                 { to: { type: 'entities' } },
+                { to: { type: 'shared' } },
+              ],
+            },
+            {
+              from: { type: 'app' },
+              allow: [
+                { to: { type: 'app' } },
+                { to: { type: 'pages' } },
                 { to: { type: 'shared' } },
               ],
             },

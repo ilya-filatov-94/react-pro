@@ -1,13 +1,9 @@
-import TaskPage from 'pages/tasks';
-import './App.css';
+import { withProviders } from './providers';
+import { Layout } from 'widgets/layout';
 
-function App() {
-  return (
-    <div className="App">
-      <TaskPage />
-    </div>
-  );
-}
+export const App = withProviders(() => {
+  return <Layout />;
+});
 
 export default App;
 
