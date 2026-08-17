@@ -73,6 +73,7 @@ export default [
       ...importPlugin.configs.recommended.rules,
       'react/prop-types': 'off',
       'react/react-in-jsx-scope': 'off',
+      'react-hooks/refs': 'off',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',

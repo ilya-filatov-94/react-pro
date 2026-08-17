@@ -1,5 +1,5 @@
-import { Typography } from '@mui/material';
 import type { FC } from 'react';
+import { Typography } from '@mui/material';
 import styles from './MainPage.module.css';
 
 const MainPage: FC = () => {
