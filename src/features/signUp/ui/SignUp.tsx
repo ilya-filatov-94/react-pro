@@ -103,7 +103,7 @@ export const SignUpForm: FC = () => {
           >
             <Typography
               variant="h6"
-              sx={{ mt: 0, mb: 2, color: '#2d3748' }}
+              sx={{ mt: 0, mb: 1, color: '#2d3748' }}
             >
               Ссылки на социальные сети
             </Typography>

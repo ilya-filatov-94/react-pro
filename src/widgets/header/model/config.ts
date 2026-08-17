@@ -6,6 +6,10 @@ export const LINKS: HeaderLink[] = [
     title: 'Список задач',
   },
   {
+    href: '/wizardForm',
+    title: 'Форма Wizard',
+  },
+  {
     href: '/signUp',
     title: 'Регистрация',
   },
