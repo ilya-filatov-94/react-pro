@@ -7,7 +7,7 @@
   padding: 8px 12px;
   border-radius: 6px;
   font-size: 14px;
-  pointer-events: auto;
+  pointer-events: none;
   white-space: nowrap;
   box-sizing: border-box;
 }
