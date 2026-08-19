@@ -27,18 +27,3 @@ export type StepTwoFormProps = BaseStepProps & {
   errorMessage: string | null;
   onBack: () => void;
 };
-
-// export type StepOneFormProps = {
-//   email: FormFieldsValues['email'];
-//   onChange: (value: string) => void;
-//   error: FormState['error'];
-//   isPending: boolean;
-//   onNext: () => void;
-// };
-
-// export type StepTwoFormProps = {
-//   stateForm: FormState;
-//   email: FormFieldsValues['email'];
-//   isPending: boolean;
-//   onBack: () => void;
-// };
