@@ -13,6 +13,7 @@ export const WizardForm = () => {
     handleNext,
     handleBack,
     handleEmailChange,
+    handleReset,
     formAction,
   } = useSubscriptionWizard();
 
@@ -27,7 +28,7 @@ export const WizardForm = () => {
         </Alert>
         <Button
           variant="contained"
-          onClick={() => window.location.reload()}
+          onClick={handleReset}
         >
           Начать заново
         </Button>

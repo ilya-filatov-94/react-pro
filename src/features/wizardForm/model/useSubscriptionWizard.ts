@@ -1,4 +1,4 @@
-import { useActionState, useEffect, useState } from 'react';
+import { useActionState, useEffect, useState, startTransition } from 'react';
 import { subscribeAction, initialState } from './form.actions';
 
 export function useSubscriptionWizard() {
@@ -24,6 +24,19 @@ export function useSubscriptionWizard() {
     setEmailError(null);
   };
 
+  const handleReset = async () => {
+    const formData = new FormData();
+    formData.set('_reset', 'true');
+
+    startTransition(() => {
+      formAction(formData);
+    });
+
+    setEmail('');
+    setStep(1);
+    setEmailError(null);
+  };
+
   return {
     step,
     email,
@@ -33,6 +46,7 @@ export function useSubscriptionWizard() {
     handleNext,
     handleBack,
     handleEmailChange,
+    handleReset,
     formAction,
   };
 }

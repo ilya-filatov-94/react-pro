@@ -13,6 +13,10 @@ export async function subscribeAction(
   prevState: FormState,
   formData: FormData,
 ): Promise<FormState> {
+  if (formData.get('_reset') === 'true') {
+    return initialState;
+  }
+
   await new Promise(resolve => setTimeout(resolve, 2000));
 
   const rawData = {
