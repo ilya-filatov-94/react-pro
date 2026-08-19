@@ -2,9 +2,13 @@ import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router';
 import MainPage from 'pages/main';
 import NotFoundPage from 'pages/notFound';
-const TaskPage = lazy(() => import('pages/tasks'));
-const PortalShowcase = lazy(() => import('pages/portal-showcase'));
 import { App } from '../App';
+
+const TaskPage = lazy(() => import('pages/tasks'));
+const DemoUseRefPage = lazy(() => import('pages/demoUseRef'));
+const WizardFormPage = lazy(() => import('pages/wizardFormPage'));
+const PortalShowcase = lazy(() => import('pages/portal-showcase'));
+const SignUpPage = lazy(() => import('pages/signUp'));
 
 export const router = createBrowserRouter([
   {
@@ -20,8 +24,20 @@ export const router = createBrowserRouter([
         element: <TaskPage />,
       },
       {
+        path: 'wizardForm',
+        element: <WizardFormPage />,
+      },
+      {
+        path: 'useRef',
+        element: <DemoUseRefPage />,
+      },
+      {
         path: 'portal-showcase',
         element: <PortalShowcase />,
+      },
+      {
+        path: 'signUp',
+        element: <SignUpPage />,
       },
       {
         path: '*',
