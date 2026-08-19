@@ -75,6 +75,7 @@ export default [
       'react/react-in-jsx-scope': 'off',
       'react-hooks/refs': 'off',
       'no-unused-vars': 'off',
+      'react-hooks/set-state-in-effect': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
