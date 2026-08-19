@@ -1,0 +1,14 @@
+.WrapperPage {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.WrapperTabs {
+  width: 100%;
+  padding-top: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}

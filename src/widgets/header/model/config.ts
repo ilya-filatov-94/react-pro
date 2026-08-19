@@ -13,4 +13,8 @@ export const LINKS: HeaderLink[] = [
     href: '/signUp',
     title: 'Регистрация',
   },
+  {
+    href: '/useRef',
+    title: 'Демо с useRef',
+  },
 ];

@@ -3,8 +3,11 @@ import { createBrowserRouter } from 'react-router';
 import MainPage from 'pages/main';
 import NotFoundPage from 'pages/notFound';
 const TaskPage = lazy(() => import('pages/tasks'));
-const SignUpPage = lazy(() => import('pages/signUp'));
+const DemoUseRefPage = lazy(() => import('pages/demoUseRef'));
 const WizardFormPage = lazy(() => import('pages/wizardFormPage'));
+const SignUpPage = lazy(() => import('pages/signUp'));
+
+
 import { App } from '../App';
 
 export const router = createBrowserRouter([
@@ -21,12 +24,16 @@ export const router = createBrowserRouter([
         element: <TaskPage />,
       },
       {
-        path: 'signUp',
-        element: <SignUpPage />,
-      },
-      {
         path: 'wizardForm',
         element: <WizardFormPage />,
+      },
+      {
+        path: 'useRef',
+        element: <DemoUseRefPage />,
+      },
+      {
+        path: 'signUp',
+        element: <SignUpPage />,
       },
       {
         path: '*',
