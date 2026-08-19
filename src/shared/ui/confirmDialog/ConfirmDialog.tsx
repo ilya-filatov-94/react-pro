@@ -1,4 +1,9 @@
-import { type FC } from 'react';
+import {
+  type FC,
+  useEffect,
+  type MouseEvent,
+  type KeyboardEvent as SyntheticKeyboardEvent,
+} from 'react';
 import { createPortal } from 'react-dom';
 import { Button } from '@mui/material';
 import { useTheme } from 'shared/lib/ThemeContext';
@@ -14,16 +19,46 @@ export const ConfirmDialog: FC<ConfirmDialogProps> = ({
 }) => {
   const { theme } = useTheme();
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onCancel();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onCancel]);
+
   if (!isOpen) return null;
+
+  const handleOverlayClick = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.target === event.currentTarget) {
+      onCancel();
+    }
+  };
+
+  const handleOverlayKeyDown = (
+    event: SyntheticKeyboardEvent<HTMLDivElement>,
+  ) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onCancel();
+    }
+  };
 
   return createPortal(
     <div
       className={`${styles.overlay} ${theme === 'dark' ? styles['overlay--dark'] : ''}`}
-      onClick={onCancel}
+      onClick={handleOverlayClick}
+      onKeyDown={handleOverlayKeyDown}
+      role="button"
+      tabIndex={0}
     >
       <div
         className={`${styles.dialog} ${theme === 'dark' ? styles['dialog--dark'] : ''}`}
-        onClick={e => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
       >

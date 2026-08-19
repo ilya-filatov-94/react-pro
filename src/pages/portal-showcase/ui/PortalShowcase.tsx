@@ -45,7 +45,12 @@ const PortalShowcase: FC = () => {
               position={ToolTipPositions.Top}
               content="Текст подсказки"
             >
-              <Typography>Наведи на меня</Typography>
+              <Typography
+                component="p"
+                sx={{ border: '2px solid #464545', padding: '10px' }}
+              >
+                Наведи на меня
+              </Typography>
             </Tooltip>
           </div>
           <div className={styles.WrapperCase}>
