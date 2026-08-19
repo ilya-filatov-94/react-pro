@@ -1,0 +1,17 @@
+.Tooltip {
+  position: fixed;
+  z-index: 1000;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  pointer-events: auto;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.WrapperText {
+  display: inline-block;
+}
