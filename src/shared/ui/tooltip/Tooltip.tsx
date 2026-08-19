@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FC, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { getTooltipContainer, getTransform } from './utils';
+import { useTheme } from 'shared/lib/ThemeContext';
 import { type ToolTipPos, ToolTipPositions } from './TooltipPosition';
 import styles from './Tooltip.module.css';
 
@@ -11,6 +12,7 @@ type TooltipProps = {
 };
 
 export const Tooltip: FC<TooltipProps> = ({ position, content, children }) => {
+  const { theme } = useTheme();
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
   const [coords, setCoords] = useState({ top: 0, left: 0 });
@@ -76,7 +78,7 @@ export const Tooltip: FC<TooltipProps> = ({ position, content, children }) => {
     <>
       <span
         ref={wrapperRef}
-        className={styles.WrapperText}
+        className={styles.wrapperText}
         onMouseEnter={showTooltip}
         onMouseLeave={scheduleHide}
       >
@@ -86,7 +88,7 @@ export const Tooltip: FC<TooltipProps> = ({ position, content, children }) => {
       {visible &&
         createPortal(
           <div
-            className={styles.Tooltip}
+            className={`${styles.tooltip} ${theme === 'dark' ? styles['tooltip--dark'] : ''}`}
             style={{
               top: coords.top,
               left: coords.left,

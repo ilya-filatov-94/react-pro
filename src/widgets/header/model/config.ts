@@ -10,15 +10,15 @@ export const LINKS: HeaderLink[] = [
     title: 'Форма Wizard',
   },
   {
-    href: '/signUp',
-    title: 'Регистрация',
-  },
-  {
     href: '/useRef',
     title: 'Демо с useRef',
   },
   {
     href: '/portal-showcase',
     title: 'Примеры с Portal',
+  },
+  {
+    href: '/signUp',
+    title: 'Регистрация',
   },
 ];

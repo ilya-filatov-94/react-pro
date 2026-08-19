@@ -1,4 +1,4 @@
-.Tooltip {
+.tooltip {
   position: fixed;
   z-index: 1000;
   background-color: #fff;
@@ -12,6 +12,12 @@
   box-sizing: border-box;
 }
 
-.WrapperText {
+.tooltip--dark {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.wrapperText {
   display: inline-block;
 }
