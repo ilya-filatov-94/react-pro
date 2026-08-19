@@ -15,7 +15,7 @@ export const Layout: FC = () => {
       <Header />
       <Container
         maxWidth="lg"
-        sx={{ py: 8 }}
+        sx={{ pt: 8 }}
       >
         <Suspense fallback={<CircularProgress aria-label="Loading…" />}>
           <Outlet />
